@@ -19,16 +19,29 @@ headers:{
 
 
 
-const heart = document.querySelector('.heart')
-const heartIMG = document.querySelector('.heart img')
+const heart = document.querySelectorAll('.heart')
+const heartIMG = document.querySelectorAll('.heart img')
 
 
 
 
 function like(event) {
-    heartIMG.src  = 'icons/Vector%20(1).svg'
+for(let i = 0;i<heartIMG.length;i++) {
+    let eventTarget = event.target.alt
+    if (eventTarget === "img") {
+        heartIMG[i].src = 'icons/Like.svg'
+        heartIMG[i].alt = 'like'
+    } else if (eventTarget === "like") {
+        heartIMG[i].src = 'icons/Vector.svg'
+        heartIMG[i].alt = 'img'
+    }
+    console.log(heartIMG.length)
+}
 }
 
-heart.addEventListener('click', function (){
-    like()
-})
+for (let i = 0;i<heart.length;i++) {
+    addEventListener('click', function (event) {
+        like(event)
+    })
+}
+
