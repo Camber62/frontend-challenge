@@ -13,3 +13,22 @@ headers:{
     console.log(cats)
     return cats
 }
+
+
+
+
+
+
+const heart = document.querySelector('.heart')
+const heartIMG = document.querySelector('.heart img')
+
+
+
+
+function like(event) {
+    heartIMG.src  = 'icons/Vector%20(1).svg'
+}
+
+heart.addEventListener('click', function (){
+    like()
+})
