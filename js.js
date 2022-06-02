@@ -24,12 +24,6 @@ const heartIMG = document.querySelectorAll('.heart img')
 
 
 
-// function like(event) {
-// for(let i = 0;i<heartIMG.length;i++) {
-//
-//     console.log(heartIMG.length)
-// }
-// }
 
 for (let i = 0;i<heartIMG.length;i++) {
     heartIMG[i].addEventListener('click', function (event) {
