@@ -34,9 +34,9 @@ main {
     margin: 16px;
     position: relative;
 }
-.img:hover
-    .heart{
-         display:block}
+/*.img:hover*/
+/*    .heart{*/
+/*         display:block}*/
 
 
 img {
@@ -53,7 +53,7 @@ img {
 }
 
 .heart {
-    display: none;
+    /*display: none;*/
     width: 40px;
     height: 36px;
     position: absolute;
