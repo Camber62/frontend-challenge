@@ -34,15 +34,18 @@ main {
     margin: 16px;
     position: relative;
 }
-/*.img:hover*/
-/*    .heart{*/
-/*         display:block}*/
-
+.img:hover
+    .heart{
+         display:block}
 
 img {
     width: 100%;
     height: 100%;
-
+}
+.img:hover{
+    transform: scale(1.1);
+    transition-duration: .5s;
+    box-shadow: 0 0 20px 10px rgb(98, 134, 173);
 }
 
 
@@ -53,7 +56,7 @@ img {
 }
 
 .heart {
-    /*display: none;*/
+    display: none;
     width: 40px;
     height: 36px;
     position: absolute;

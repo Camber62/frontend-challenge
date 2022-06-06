@@ -1,3 +1,7 @@
+import "./Cats.js";
+
+
+
 ;(async ()=>{
     await getAllCAts();
 })();
@@ -16,12 +20,22 @@ headers:{
 
 
 
-
-
-
 const heartIMG = document.querySelectorAll('.heart img')
+const main = document.querySelector('main')
 
 
+
+for(let i ; i<cats.length; i++){
+    main.innerHTML +=
+        "
+            <div className="img">
+                <img src=cats[i].url alt="img">
+                    <div className="heart">
+                        <img src="icons/Vector.svg" alt="img">
+                    </div>
+            </div>
+         "
+}
 
 
 
