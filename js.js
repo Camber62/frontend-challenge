@@ -285,14 +285,20 @@ function like() {
     const heartIMG = document.querySelectorAll('.heart img')
     for (let i = 0; i < heartIMG.length; i++) {
         heartIMG[i].addEventListener('click', function (event) {
-            let eventTarget = event.target.alt
-            if (eventTarget === "img") {
+            let eventTarget = cats[i].favorites
+            // console.log(eventTarget[i])
+            if (eventTarget === undefined) {
                 heartIMG[i].src = 'icons/Like.svg'
-                heartIMG[i].alt = 'like'
+                // heartIMG[i].alt = 'like'
                 cats[i].favorites = true
-            } else if (eventTarget === "like") {
+            } else if (eventTarget === false) {
+                heartIMG[i].src = 'icons/Like.svg'
+                // heartIMG[i].alt = 'img'
+                cats[i].favorites = true
+            }
+            else if (eventTarget === true) {
                 heartIMG[i].src = 'icons/Vector.svg'
-                heartIMG[i].alt = 'img'
+                // heartIMG[i].alt = 'img'
                 cats[i].favorites = false
             }
 
@@ -314,10 +320,10 @@ favoritesCats.addEventListener('click', function (event) {
                 <img src="icons/Like.svg" alt="img">
                 </div>
                 </div>`
-        }else if(cats[i].favorites === false){
-            main.innerHTML +=''
         }
-        like();
+
+
+        // console.log(cats[i].favorites===true)
     }
-    // console.log(cats[i].favorites)
+    like();
 })

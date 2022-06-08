@@ -1,6 +1,6 @@
 
 
-const cats = [
+let cats = [
     {
         "breeds": [],
         "categories": [
@@ -231,4 +231,81 @@ const cats = [
         "width": 184,
         "height": 273
     }
-]
+];
+const main = document.querySelector('main')
+const allCots = document.querySelector('.all')
+const favoritesCats = document.querySelector('.favorites')
+let newCats=[];
+
+//отрисовка
+
+function draw() {
+    for (let i = 0; i < cats.length; i++) {
+        main.innerHTML +=
+            `<div class = 'img'>
+        <img src="${cats[i].url}" alt="img">
+        <div class='heart'>
+        <img src="icons/Vector.svg" alt="img">
+        </div>
+        </div>`
+    }
+    like();
+}
+
+//все котики+ отрисовка
+
+allCots.addEventListener('click', function (event) {
+    draw()
+})
+console.log(cats)
+
+
+// добавление в любимые
+
+
+function like() {
+    const heartIMG = document.querySelectorAll('.heart img')
+    for (let i = 0; i < heartIMG.length; i++) {
+        heartIMG[i].addEventListener('click', function (event) {
+            let eventTarget = cats[i].favorites
+
+            if (eventTarget === undefined) {
+                heartIMG[i].src = 'icons/Like.svg'
+                cats[i].favorites = true
+                newCats.push(cats[i])
+            }
+            else if (eventTarget === false) {
+                heartIMG[i].src = 'icons/Like.svg'
+                cats[i].favorites = true
+                newCats.push(cats[i])
+            }
+            else if (eventTarget === true) {
+                heartIMG[i].src = 'icons/Vector.svg'
+                // heartIMG[i].alt = 'img'
+                cats[i].favorites = false
+                cats.push(newCats[i])
+            }
+
+        })
+    }
+}
+
+//Любимые котики + отрисовка
+
+favoritesCats.addEventListener('click', function (event) {
+    main.innerHTML =''
+
+    for (let i = 0; i < newCats.length; i++) {
+        if (newCats[i].favorites === true) {
+            main.innerHTML +=
+                `<div class = 'img'>
+                <img src="${cats[i].url}" alt="img">
+                <div class='heart'>
+                <img src="icons/Like.svg" alt="img">
+                </div>
+                </div>`
+    }
+        like();
+    }
+    console.log(newCats)
+})
