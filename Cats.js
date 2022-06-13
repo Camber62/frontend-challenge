@@ -1,5 +1,4 @@
 
-
 let cats = [
     {
         "breeds": [],
@@ -237,9 +236,12 @@ const allCots = document.querySelector('.all')
 const favoritesCats = document.querySelector('.favorites')
 let newCats=[];
 
-//отрисовка
 
-function draw() {
+
+
+//все котики + отрисовка
+
+allCots.addEventListener('click', function (event) {
     for (let i = 0; i < cats.length; i++) {
         main.innerHTML +=
             `<div class = 'img'>
@@ -250,12 +252,6 @@ function draw() {
         </div>`
     }
     like();
-}
-
-//все котики+ отрисовка
-
-allCots.addEventListener('click', function (event) {
-    draw()
 })
 console.log(cats)
 
@@ -269,12 +265,8 @@ function like() {
         heartIMG[i].addEventListener('click', function (event) {
             let eventTarget = cats[i].favorites
 
-            if (eventTarget === undefined) {
-                heartIMG[i].src = 'icons/Like.svg'
-                cats[i].favorites = true
-                newCats.push(cats[i])
-            }
-            else if (eventTarget === false) {
+
+            if (eventTarget === false || eventTarget === undefined) {
                 heartIMG[i].src = 'icons/Like.svg'
                 cats[i].favorites = true
                 newCats.push(cats[i])
@@ -285,7 +277,6 @@ function like() {
                 cats[i].favorites = false
                 cats.push(newCats[i])
             }
-
         })
     }
 }
@@ -305,7 +296,8 @@ favoritesCats.addEventListener('click', function (event) {
                 </div>
                 </div>`
     }
-        like();
+
     }
     console.log(newCats)
+    like();
 })
